@@ -3,12 +3,11 @@ import Navbar from '../../components/navbar/index';
 import { Header } from './../../components/header/index';
 import { Card } from '../../components/card/index';
 import { ContainerCard } from './../../components/containerCard/index';
-import { SearchInput } from '../../components/searchinput/index';
+import Footer from '../../components/footer/index';
 
 export const Home = () => {
 return(<>
     <Header>
-        <SearchInput />
         <Navbar />
     </Header>
     <ContainerCard>
@@ -19,6 +18,7 @@ return(<>
         <Card></Card>
         <Card></Card>
     </ContainerCard>
-</>
+    <Footer/>
+    </>
 )
 }

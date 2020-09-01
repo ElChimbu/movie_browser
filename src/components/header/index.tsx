@@ -13,6 +13,9 @@ return(
                 Movies!
             </p>
         </div>
+        <div className="mb-1">
+            <h1 className="text-white text-xl">Search your favorite movies here</h1>
+        </div>
         <div className="mt-4">
             {children}
         </div>

@@ -1,15 +1,19 @@
 import React, { ReactNode } from 'react';
+import { ContentStatus } from './../contentStatus/index';
 
 type ContainerProps = {
-    children: ReactNode;
+children: ReactNode;
 }
 
 export const ContainerCard = ({children} : ContainerProps ) =>{
 return(
-<div className="flex justify-center">
-    <div className=" -mt-8 p-3 flex flex-wrap justify-between rounded-md shadow-2xl bg-gray-200 w-3/4 h-auto">
-        {children}
-    </div>
+<div className="-mt-16">
+        <ContentStatus />
+        <div className="flex justify-center">
+            <div className="p-3 flex flex-wrap justify-between rounded-md shadow-2xl bg-gray-200 w-3/4 h-auto">
+                {children}
+            </div>
+        </div>
 </div>
 )
 }
