@@ -1,12 +1,12 @@
 import React from 'react'
 import Styled from 'styled-components'
 
-const CardContainer = Styled.div`
+const CardStyles = Styled.div`
 margin-top: 10px;
 margin-bottom: 10px;
 margin-left: auto;
 margin-right: auto;
-background-color: #cfcfcf;
+background-color: #dedede;
 width: 19rem;
 height: 300px;
 border-radius: 10px;
@@ -17,10 +17,11 @@ cursor: pointer;
 const TitleContainer = Styled.div`
 border-radius: 0px 0px 40px 40px;
 `
+
 export const Card = () =>{
 return(
 <>
-  <CardContainer>
+  <CardStyles>
     <div className="absolute rounded-lg w-auto h-auto bg-gray-800">
       <h3 className="text-sm m-3">Genre</h3>
     </div>
@@ -32,7 +33,7 @@ return(
           <h2 className="text-lg font-semibold">THE MOVIE</h2>
       </TitleContainer>
     </div>
-  </CardContainer>
+  </CardStyles>
 </>
 )
 }

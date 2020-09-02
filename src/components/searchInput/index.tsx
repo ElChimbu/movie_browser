@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 import React from 'react';
 
-export default function Navbar() {
+export default function SearchInput() {
 return (
 <div className="flex">
   <input

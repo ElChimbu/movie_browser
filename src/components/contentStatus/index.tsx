@@ -15,7 +15,7 @@ export const ContentStatus = () =>{
     return(
         <div className="flex justify-center">
         <TitleContainer>
-            <p className=" m-2">Latest tendencies</p>
+            <p className="m-2">Lastest tendencies</p>
         </TitleContainer>
         </div>
     )
