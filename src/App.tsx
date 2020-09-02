@@ -14,15 +14,15 @@ class App extends React.Component {
 public render() {
 return (
 <AppWraper>
-  <Router>
-    <ContainerCard>
+  <ContainerCard>
+    <Router>
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/movies/:id' component={MovieFile} />
         <Route component={Error} />
       </Switch>
-    </ContainerCard>
-  </Router>
+    </Router>
+  </ContainerCard>
 </AppWraper>
 );
 }

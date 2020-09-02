@@ -4,11 +4,9 @@ import Styled from 'styled-components'
 const CardStyles = Styled.div`
 margin-top: 10px;
 margin-bottom: 10px;
-margin-left: auto;
-margin-right: auto;
 background-color: #dedede;
-width: 19rem;
-height: 300px;
+width: auto;
+height: auto;
 border-radius: 10px;
 padding: 10px;
 color: white;
@@ -17,20 +15,30 @@ cursor: pointer;
 const TitleContainer = Styled.div`
 border-radius: 0px 0px 40px 40px;
 `
+export const Img = Styled.img`
+  width: 230px;
+  height: 330px
+`
+type ICard = {
+genre?: string;
+img?: string;
+title?: string;
+}
 
-export const Card = () =>{
+export const Card = ({genre, img, title} : ICard) =>{
 return(
 <>
   <CardStyles>
-    <div className="absolute rounded-lg w-auto h-auto bg-gray-800">
-      <h3 className="text-sm m-3">Genre</h3>
+    <div className="absolute rounded-lg w-auto h-auto shadow-2xl bg-gray-800">
+      <h3 className="text-sm m-3">FANTASY</h3>
     </div>
     <div>
-      <img src="https://placekitten.com/300/250" />
+    <Img src="https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg">
+    </Img>
     </div>
     <div>
-      <TitleContainer className="bg-blue-900 text-center w-auto h-12 p-2">
-          <h2 className="text-lg font-semibold">THE MOVIE</h2>
+      <TitleContainer className="bg-blue-900 text-center w-auto h-12 p-2 ">
+          <h2 className="text-lg font-semibold">THE AVENGERS</h2>
       </TitleContainer>
     </div>
   </CardStyles>

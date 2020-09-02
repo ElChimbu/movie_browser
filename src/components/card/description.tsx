@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const MovieFile = ({}) =>{
+export const MovieFile = () =>{
     return(
         <div className="ml-auto mr-auto w-11/12 h-auto bg-gray-700">
             <div>
