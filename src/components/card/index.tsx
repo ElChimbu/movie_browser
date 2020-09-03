@@ -30,15 +30,15 @@ return(
 <>
   <CardStyles>
     <div className="absolute rounded-lg w-auto h-auto shadow-2xl bg-gray-800">
-      <h3 className="text-sm m-3">FANTASY</h3>
+      <h3 className="text-sm m-3">{genre}</h3>
     </div>
     <div>
-    <Img src="https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg">
+    <Img src={img}>
     </Img>
     </div>
     <div>
       <TitleContainer className="bg-blue-900 text-center w-auto h-12 p-2 ">
-          <h2 className="text-lg font-semibold">THE AVENGERS</h2>
+          <h2 className="text-lg font-semibold">{title}</h2>
       </TitleContainer>
     </div>
   </CardStyles>
