@@ -2,7 +2,10 @@ import '@material-ui/styles'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css'
-
 import App from './App';
-
-ReactDOM.render(<App />, document.querySelector('#root'));
+import Context from './components/contextAPI/index';
+            
+ReactDOM.render(
+<Context>
+<App />
+</Context>, document.querySelector('#root'));

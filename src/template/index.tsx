@@ -1,23 +1,25 @@
 import React, { ReactNode } from 'react'
-import { Header } from '../components/header/index'
+import Header  from '../components/header/index'
 import SearchInput from './../components/searchInput/index';
 import Footer from '../components/footer/index';
-import  Styled  from 'styled-components';
+import ContainerCard from './../components/containerCard/index';
 
 type templateProps = {
-    children: ReactNode;
-    }
+children: ReactNode;
+}
 
-export const AppWraper = ({children}: templateProps) =>{
+const AppWraper = ({children}: templateProps) =>{
 return (
 <div>
     <Header>
-        <SearchInput/>
+        <SearchInput />
     </Header>
-    <div>
-    {children}
-    </div>
+    <ContainerCard>
+        {children}
+    </ContainerCard>
     <Footer />
 </div>
 )
 }
+
+export default AppWraper

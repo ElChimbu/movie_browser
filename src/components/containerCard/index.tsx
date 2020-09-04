@@ -5,7 +5,7 @@ type IContainer = {
 children: ReactNode;
 }
 
-export const ContainerCard = ({children} : IContainer ) =>{
+const ContainerCard = ({children} : IContainer ) =>{
 return(
     <div className="-mt-16">
         <ContentStatus />
@@ -17,3 +17,5 @@ return(
     </div>
 )
 }
+
+export default ContainerCard
