@@ -1,45 +1,51 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Img } from './index';
-import  Styled  from 'styled-components';
+import { MoviesService } from '../../services/MoviesService'
+import {useParams} from 'react-router'
 
 type IMovieFile = {
     title: string;
-    plot: string;
-    director: string;
-    actors: string;
+    overview: string;
+    poster_path: string;
+    release_date: string;
 }
 
-const TextStyles = Styled.p`
-    font-size: 0.875rem;
-    font-weight: 600;
-    margin-top: 1rem
-`
+export const MovieFile = () =>{
+const { id } : any = useParams();
+const [response, setResponse] = useState<IMovieFile>({title: '', overview: '', poster_path: '', release_date:''})
 
-export const MovieFile = ({title, plot, director, actors}: IMovieFile) =>{
+useEffect(() => {
+    {
+        id ?
+        MoviesService.FindById(id).then( results => {
+            setResponse(results)
+        }) : null
+    }
+  });
+
 return(
+    
 <article className="flex justify-center flex-wrap p-6">
     <div className="flex flex-col">
         <header className="text-center text-lg mb-2 bg-gray-300">
             <h1>
-                {title}
+                {response.title}
             </h1>
         </header>
-        <Img src="https://placekitten.com/230/330" />
+        <Img src={`https://image.tmdb.org/t/p/w500/${response.poster_path}`} />
     </div>
     <div className="w-8/12 p-8 flex-grow align-middle text-justify">
         <p className="text-lg font-semibold mb-2">
             Plot:
         </p>
-        <p>{ plot }
+        <p>
+            {response.overview}
         </p>
-        <TextStyles> 
-            <p className="mt-4">
-            Directed by: <span>{director}</span>
-            </p>
-             <p className="mt-4">
-            Actors: {actors}
-            </p> 
-        </TextStyles>
+        <div>
+         <p className="mt-6 text-sm font-semibold">
+            Release Date: <span>{response.release_date}</span>
+        </p>
+        </div>
     </div>
 </article>
 )

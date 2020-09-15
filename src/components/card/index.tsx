@@ -1,10 +1,33 @@
 import React from 'react'
 import Styled from 'styled-components'
-import { Link } from 'react-router-dom'
+
+type ICard = {
+  genre: string;
+  img: string;
+  title: string;
+}
+
+export const Card = ({genre, img, title} : ICard) =>{
+  return(
+<CardStyles>
+  <div className="truncate absolute rounded-lg w-auto h-auto shadow-2xl bg-gray-800">
+    <h3 className="text-sm m-3">{genre}</h3>
+  </div>
+  <div>
+    <Img src={`https://image.tmdb.org/t/p/w500/${img}`}>
+    </Img>
+  </div>
+  <div>
+    <TitleContainer>
+      <h2 className="p-3 truncate text-sm font-semibold">{title}</h2>
+    </TitleContainer>
+  </div>
+</CardStyles>
+)
+}
 
 const CardStyles = Styled.div`
-margin-top: 10px;
-margin-bottom: 10px;
+margin: 20px;
 background-color: #dedede;
 width: auto;
 height: auto;
@@ -24,29 +47,3 @@ export const Img = Styled.img`
 width: 230px;
 height: 330px
 `
-type ICard = {
-genre: string;
-img: string;
-title: string;
-id: string;
-}
-
-export const Card = ({id, genre, img, title} : ICard) =>{
-return(
-<Link to={`movies/${id}`}>
-<CardStyles>
-  <div className="truncate absolute rounded-lg w-auto h-auto shadow-2xl bg-gray-800">
-    <h3 className="text-sm m-3">{genre}</h3>
-  </div>
-  <div>
-    <Img src={img}>
-    </Img>
-  </div>
-  <div>
-    <TitleContainer>
-      <h2 className="p-3 truncate text-sm font-semibold">{title}</h2>
-    </TitleContainer>
-  </div>
-</CardStyles>
-</Link>)
-}

@@ -1,15 +1,30 @@
-import * as React from 'react';
+import React from 'react'
+import {Home} from './pages/home/index';
 import AppWraper from './template/index';
-import Routes from './routes/index';
+import Error from './components/error/index';
+import { MoviesProvider } from './components/MoviesContext/index';
+import { MovieFile } from './components/card/description';
+import {
+BrowserRouter as Router,
+Switch,
+Route,
+} from "react-router-dom";
 
-class App extends React.Component {
-public render() {
-return (
-<AppWraper>
-      <Routes />
-</AppWraper>
-);
-}
+
+export const Routes = () =>{
+return(
+    <Router>
+        <AppWraper>
+            <MoviesProvider>
+                <Switch>
+                    <Route exact path='/' component={Home} />
+                    <Route exact path='/movies/:id' component={MovieFile} />
+                    <Route component={Error} />
+                </Switch>
+            </MoviesProvider>
+        </AppWraper>
+    </Router>
+)
 }
 
-export default App;
+export default Routes

@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Card } from '../../components/card/index';
-import {CardContext} from '../../components/contextAPI/index';
+import { useMovies } from '../../components/MoviesContext/index';
+import { MoviesService } from '../../services/MoviesService'
 
+type IResults ={
+    results: object[]
+}
+    
 export const Home = () => {
-return(
-    <CardContext.Consumer>
-        {
-            value => value.map( movie =>{
-                return <li className="list-none mr-auto ml-auto">
-                <Card genre={movie.genre} img={movie.img} title={movie.title} key={movie.id}/>
-            </li>
+    const { loading, results, setResponse } = useMovies()
+    const location = useLocation();
+    const search = new URLSearchParams(location.search).get('search')
+    useEffect(() => {
+        { search ?
+            MoviesService.SearchMovies(search).then(({ results }: IResults) => {
+                setResponse(false, results)
+            }) : 
+            MoviesService.PopularMovies().then(({ results }: IResults) => {
+                setResponse(false, results)
             })
         }
-    </CardContext.Consumer>
-)
+    }, [search, setResponse])
+
+    return <>
+        {
+        results.map((movie: { id: string, genre_ids: string, poster_path: string, title: string }) => (
+            <Link key={movie.id} to={`movies/${movie.id}`}>  
+                <li className="list-none">
+                    <Card genre={movie.genre_ids[0]} img={movie.poster_path} title={movie.title}/>
+                </li>
+            </Link>
+        ))
+    }</>
 }

@@ -10,7 +10,7 @@ return(
 <header className="flex justify-center flex-wrap bg-gray-900 w-full h-64">
     <div>
         <Router>
-        <Link to="/home">
+        <Link to="/">
         <div>
             <p className="font-sans font-bold text-4xl text-white text-center pt-5">
                 Movies!
