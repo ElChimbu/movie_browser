@@ -1,7 +1,7 @@
 import '@material-ui/styles'
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App';
-            
-ReactDOM.render(<App />, document.querySelector('#root'));
+import App from './App'
+
+ReactDOM.render(<App />, document.querySelector('#root'))
