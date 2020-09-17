@@ -18,7 +18,6 @@ export default function Movies() {
     search
       ? MoviesService.SearchMovies(search).then(({ results }: IResults) => {
           setResponse(false, results)
-          console.log(results)
         })
       : MoviesService.PopularMovies().then(({ results }: IResults) => {
           setResponse(false, results)
